@@ -8,7 +8,6 @@ function printError() {
 
 // Very basic fibonnaci sequence with recursive (not very optimized for big numbers though)
 function fibonnaciSequence(n) {
-  if()
   if (n == 0) {
     return 0;
   } else if (n == 1 || n == 2) {
