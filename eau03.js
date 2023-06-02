@@ -8,6 +8,7 @@ function printError() {
 
 // Very basic fibonnaci sequence with recursive (not very optimized for big numbers though)
 function fibonnaciSequence(n) {
+  if()
   if (n == 0) {
     return 0;
   } else if (n == 1 || n == 2) {
@@ -22,7 +23,7 @@ if (args.length !== 3) {
   printError();
   return;
 }
-if (isNaN(args[2])) {
+if (isNaN(args[2]) || args[2] < 0) {
   printError();
   return;
 }
