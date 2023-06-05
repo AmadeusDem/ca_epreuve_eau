@@ -22,7 +22,7 @@ function printError() {
 }
 
 function upperCaseStartOfWords(input) {
-  let previousChar = '';
+  let previousChar = "";
   let returnString = "";
   for (char of input) {
     if (checkPreviousChar(previousChar)) {
@@ -35,7 +35,12 @@ function upperCaseStartOfWords(input) {
 }
 
 function checkPreviousChar(previousChar) {
-  return previousChar === '\t' || previousChar === '\n' || previousChar === ' ' || previousChar === '';
+  return (
+    previousChar === "\t" ||
+    previousChar === "\n" ||
+    previousChar === " " ||
+    previousChar === ""
+  );
 }
 
 // Handling errors

@@ -5,9 +5,12 @@ const userSubstring = args[3];
 // Functions
 function substringIsInString(string, substring) {
   for (let i = 0; i < string.length; i++) {
-    if (string[i] === substring[0] && i + substring.length - 1 < string.length) {
-      let slice = string.slice(i, i+substring.length);
-      if(substring === slice) {
+    if (
+      string[i] === substring[0] &&
+      i + substring.length - 1 < string.length
+    ) {
+      let slice = string.slice(i, i + substring.length);
+      if (substring === slice) {
         return true;
       }
     }

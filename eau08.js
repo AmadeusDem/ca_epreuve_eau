@@ -27,10 +27,10 @@ function printError() {
 function isANumber(input) {
   for (char of input) {
     const isNotADigit = char.match(/\d/) === null;
-    if(input.length < 2 && isNotADigit) {
+    if (input.length < 2 && isNotADigit) {
       return false;
     }
-    if (char === '-' || char === '.' || char === ',') {
+    if (char === "-" || char === "." || char === ",") {
       continue;
     } else if (isNotADigit) {
       return false;
@@ -44,7 +44,7 @@ if (args.length !== 3) {
   printError();
   return;
 }
-if(args[2] === null) {
+if (args[2] === null) {
   printError();
   return;
 }

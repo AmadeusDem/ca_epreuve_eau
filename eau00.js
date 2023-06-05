@@ -8,7 +8,7 @@ function combinationOfThreeDigits(array) {
   for (let i = 0; i < 8; i++) {
     for (let j = 1; j < 9; j++) {
       for (let k = 2; k < 10; k++) {
-        (k > j && j > i) && array.push(`${i}${j}${k}`);
+        k > j && j > i && array.push(`${i}${j}${k}`);
       }
     }
   }
@@ -18,6 +18,6 @@ function combinationOfThreeDigits(array) {
 combinationOfThreeDigits(combinations);
 
 // Print results
-for(let combination of combinations) {
+for (let combination of combinations) {
   console.log(combination);
 }

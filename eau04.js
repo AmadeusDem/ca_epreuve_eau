@@ -6,14 +6,14 @@ const userInput = args[2];
 function isPrimeNumber(number) {
   let prime = true;
   for (let i = 2; i <= Math.floor(Math.sqrt(number)); i++) {
-    prime = (number % i) !== 0;
-    if(!prime) break;
+    prime = number % i !== 0;
+    if (!prime) break;
   }
   return prime;
 }
 
 function closestPrimeNumber(number) {
-  while(!isPrimeNumber(number)){
+  while (!isPrimeNumber(number)) {
     number++;
   }
   return number;
