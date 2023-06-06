@@ -1,9 +1,9 @@
-// Tri à bulle
+// Tri par sélection
 /*
-Créez un programme qui trie une liste de nombres. Votre programme devra implémenter l’algorithme du tri à bulle.
+Créez un programme qui trie une liste de nombres. Votre programme devra implémenter l’algorithme du tri par sélection.
 
 Vous utiliserez une fonction de cette forme (selon votre langage) :
-my_bubble_sort(array) {
+my_select_sort(array) {
 	# votre algorithme
 	return (new_array)
 }
@@ -31,17 +31,25 @@ const arrayContainsOnlyNumerics = (array) => {
   }
   return true;
 };
-const bubbleSort = (arrayToSort) => {
+const selectSort = (arrayToSort) => {
   let newArray = arrayToSort.map((element) => parseInt(element));
-  for (let i = newArray.length - 1; i > 0; i--) {
-    for (let j = 0; j < i; j++) {
-      if (newArray[j] > newArray[j + 1]) {
-        [newArray[j], newArray[j + 1]] = [newArray[j + 1], newArray[j]];
+  for (let i = 0; i < newArray.length; i++) {
+    let indexSmallestNumber = i;
+    for (let j = i + 1; j < newArray.length; j++) {
+      if (newArray[j] < newArray[indexSmallestNumber]) {
+        indexSmallestNumber = j;
       }
+    }
+    if (indexSmallestNumber != i) {
+      [newArray[i], newArray[indexSmallestNumber]] = [
+        newArray[indexSmallestNumber],
+        newArray[i],
+      ];
     }
   }
   return newArray;
 };
+
 // Handling errors
 if (args.length < 4) {
   printError("Error. Not enough arguments.");
@@ -51,8 +59,10 @@ if (!arrayContainsOnlyNumerics(inputsToSort)) {
   printError("Error. Please enter only numbers.");
   return;
 }
+// Parsing
+
 // Solving problem
-const sortedArray = bubbleSort(inputsToSort);
+const sortedArray = selectSort(inputsToSort);
 
 // Printing result
 console.log(sortedArray);
