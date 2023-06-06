@@ -18,17 +18,20 @@ const printError = (errorMessage) => {
   console.error(errorMessage);
 };
 
+const invertTwoIndexesInArray = (array, index1, index2) => {
+  [array[index1], array[index2]] = [array[index2], array[index1]];
+};
+
 const bubbleSortByAsciiValue = (arrayToSort) => {
-  let newArrayWithAscii = arrayToSort.map((x) => x.charCodeAt(0)); // We get the ascii values from each element on the arrayToSort and put them in a new array
-  let newArray = arrayToSort;
-  for (let i = newArrayWithAscii.length - 1; i > 0; i--) {
+  let newArray = [...arrayToSort];
+  for (let i = newArray.length - 1; i > 0; i--) {
     for (let j = 0; j < i; j++) {
-      if (newArrayWithAscii[j] > newArrayWithAscii[j + 1]) {
-        [newArrayWithAscii[j], newArrayWithAscii[j + 1]] = [
-          newArrayWithAscii[j + 1],
-          newArrayWithAscii[j],
-        ];
-        [newArray[j], newArray[j + 1]] = [newArray[j + 1], newArray[j]];
+      if (newArray[j].charCodeAt(0) === newArray[j + 1].charCodeAt(0)) {
+        if (newArray[j] > newArray[j + 1]) {
+          invertTwoIndexesInArray(newArray, j, j + 1);
+        }
+      } else if (newArray[j].charCodeAt(0) > newArray[j + 1].charCodeAt(0)) {
+        invertTwoIndexesInArray(newArray, j, j + 1);
       }
     }
   }
